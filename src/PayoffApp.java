@@ -11,6 +11,7 @@ public class PayoffApp {
         System.out.println(amex);
         
         List<Double> aprs = new ArrayList<>();
+        List<CreditCard> card = new ArrayList<>();
 
         while(scan.hasNextLine()) {
             String name = scan.nextLine();
@@ -21,14 +22,23 @@ public class PayoffApp {
 
             double balance = scan.nextDouble();
 
+            //Could do it in 2 steps by making a CreditCard variable then adding it
+            card.add(new CreditCard(name, apr, balance));
+
             // Consume \n after balance input 
             if(scan.hasNextLine()) scan.nextLine();
 
+            /*
             String aprString = String.format("%.2f%%", apr);
             String balanceString = String.format("$%.2f", balance);
             System.out.println(name + ": " + "APR: " + aprString + " Balance: " + balanceString);
+            */
         }
-        
+        for(CreditCard x : card)
+        {
+            System.out.println(x);
+        }
+
         Collections.sort(aprs, Collections.reverseOrder());
 
         System.out.println(aprs);
