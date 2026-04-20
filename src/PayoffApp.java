@@ -1,13 +1,24 @@
 import java.util.Scanner;
+import java.util.List;
+import java.util.ArrayList;
 
 public class PayoffApp {
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
 
+        //added//type inference "'an arraylist of double"
+        List<Double> aprs = new ArrayList<>();
+
         while(scan.hasNextLine()) {
             String name = scan.nextLine();
 
             double apr = scan.nextDouble();
+
+            //added code
+            aprs.add(apr);
+
+
+
             double balance = scan.nextDouble();
 
             // Consume \n after balance input 
@@ -17,5 +28,10 @@ public class PayoffApp {
             String balanceString = String.format("$%.2f", balance);
             System.out.println(name + ": " + "APR: " + aprString + " Balance: " + balanceString);
         }
+
+        Collections.sort(aprs, Collections.reverseOrder()); 
+
+        //added code
+        System.out.println(aprs);
     }
 }
