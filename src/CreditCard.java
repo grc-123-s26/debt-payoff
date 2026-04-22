@@ -1,4 +1,4 @@
-public class CreditCard {
+public class CreditCard implements Comparable<CreditCard>{
     private String name;
     private double apr;
     private double balance;
@@ -16,6 +16,15 @@ public class CreditCard {
 
     public String getName(){
         return name;
+    }
+
+    public int compareTo(CreditCard other){
+        /*if(apr < other.apr) return -1;
+        else if(apr == other.apr) return 0;
+        return 1;*/
+
+        return Double.valueOf(apr).compareTo(other.apr);
+
     }
     
 }
