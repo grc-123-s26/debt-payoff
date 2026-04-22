@@ -1,4 +1,4 @@
-public class CreditCard {
+public class CreditCard implements Comparable<CreditCard> {
 
     private double apr;
     private double balance;
@@ -8,6 +8,16 @@ public class CreditCard {
         this.apr = apr;
         this.balance = balance;
         this.name = name;
+    }
+
+    @Override
+    public int compareTo(CreditCard card) {
+        if (card.getApr() < this.apr) {
+            return 1;
+        } else if (card.getApr() > this.apr) {
+            return -1;
+        }
+        return 0;
     }
 
     @Override
