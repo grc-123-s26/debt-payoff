@@ -37,6 +37,7 @@ public class PayoffApp {
 
 
         Collections.sort(aprs, Collections.reverseOrder());
+        Collections.sort(cards, Collections.reverseOrder());
         
         System.out.println(aprs);
         System.out.println(cards);

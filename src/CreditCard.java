@@ -1,4 +1,4 @@
-public class CreditCard {
+public class CreditCard implements Comparable<CreditCard>{
     private String name;
     private double apr;
     private double balance;
@@ -19,6 +19,14 @@ public class CreditCard {
     }
     public double getBalance() {
         return balance;
+    }
+
+    public int compareTo(CreditCard other) {
+        if(apr < other.apr) return -1;
+        if(apr == other.apr) return 0;
+        return 1;
+
+        //return Double.valueOf(apr).compareTo(other.apr); //this functions the same
     }
 
     @Override //not required, but helps us spot where/whether or not the the method existed before?
