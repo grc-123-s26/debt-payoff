@@ -60,9 +60,10 @@ public class CreditCard implements Comparable<CreditCard>{
  
     public int compareTo(CreditCard other)
     {
-        if(this.APR < other.APR){return -1;}
-        else if(this.APR > other.APR){return 1;}
-        return 0;
+        //if(this.APR < other.APR){return -1;}
+        //else if(this.APR > other.APR){return 1;}
+        //return 0;
+        return Double.valueOf(APR).compareTo(Double.valueOf(other.APR));
     }
     
 }
