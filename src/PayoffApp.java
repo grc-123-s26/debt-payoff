@@ -1,14 +1,27 @@
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 import java.util.Scanner;
 
+// alt + shift + o
+
 public class PayoffApp {
-    public static void main(String[] args) {
+    public static void main(String[] args) { 
         Scanner scan = new Scanner(System.in);
+
+        CreditCard amex = new CreditCard("American Express", 18.4, 402); 
+        System.out.println(amex);
+
+        List<Double> aprs = new ArrayList<>();
+        List<CreditCard> cards = new ArrayList<>();  
 
         while(scan.hasNextLine()) {
             String name = scan.nextLine();
 
             double apr = scan.nextDouble();
             double balance = scan.nextDouble();
+
+            cards.add(new CreditCard(name, apr, balance));
 
             // Consume \n after balance input 
             if(scan.hasNextLine()) scan.nextLine();
@@ -17,5 +30,10 @@ public class PayoffApp {
             String balanceString = String.format("$%.2f", balance);
             System.out.println(name + ": " + "APR: " + aprString + " Balance: " + balanceString);
         }
+
+        Collections.sort(aprs, Collections.reverseOrder());
+        Collections.sort(cards, Collections.reverseOrder());
+
+        System.out.println(cards); 
     }
 }
