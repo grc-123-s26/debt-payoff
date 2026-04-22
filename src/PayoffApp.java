@@ -29,7 +29,7 @@ public class PayoffApp {
             String balanceString = String.format("$%.2f", balance);
             System.out.println(name + ": " + "APR: " + aprString + " Balance: " + balanceString);
         }
-        Collections.sort(aprs, Collections.reverseOrder());
-        System.out.println(aprs);
+        Collections.sort(cards);
+        System.out.println(cards);
     }
 }
